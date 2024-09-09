@@ -1,9 +1,10 @@
-const  {createServer} = require('http');
-const server = createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World thid id node js!\n');
+const http = require('http');
+const server = http.createServer((request, response)=>{
+    console.log(request.method, request.url, request.headers);
+    console.log(request.body);
+    response.end('this is the message for response end hopes you get it');
 });
 
-server.listen(3000, '127.0.0.1', () => {
-  console.log('Listening on 127.0.0.1:3000');
+server.listen(3001,'localhost',() =>{
+    console.log('message if you get it')
 });
